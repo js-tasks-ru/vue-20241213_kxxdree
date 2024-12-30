@@ -6,7 +6,6 @@ export default defineComponent({
 
   setup() {
     const pageNumber = ref(1)
-    const buttons = ref([1, 2, 3, 4, 5])
     const meetup = ref({})
 
     const fetchMeetup = async id => {
@@ -35,7 +34,6 @@ export default defineComponent({
 
     return {
       pageNumber,
-      buttons,
       meetup,
       pickNextMeetup,
       pickPrevMeetup,
@@ -48,7 +46,7 @@ export default defineComponent({
         <button class="button button--secondary" type="button" :disabled='pageNumber === 1' @click='pickPrevMeetup'>Предыдущий</button>
 
         <div class="radio-group" role="radiogroup">
-          <div v-for='button in buttons' class="radio-group__button">
+          <div v-for='button in 5' class="radio-group__button">
             <input
               :id="'meetup-id-' + button"
               class="radio-group__input"
