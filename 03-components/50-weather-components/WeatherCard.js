@@ -32,6 +32,9 @@ export default defineComponent({
 
     const temperature = computed(() => formatTemp(props.weatherData.current.temp).toFixed(1))
     const pressure = computed(() => formatPressure(props.weatherData.current.pressure).toFixed(0))
+    const nightTime = computed(() =>
+      isNigth(props.weatherData.current.dt, props.weatherData.current.sunrise, props.weatherData.current.sunset),
+    )
 
     return {
       formatTemp,
@@ -40,11 +43,12 @@ export default defineComponent({
       isNigth,
       temperature,
       pressure,
+      nightTime,
     }
   },
 
   template: `
-     <li class="weather-card" :class="{ 'weather-card--night': isNigth(weatherData.current.dt, weatherData.current.sunrise, weatherData.current.sunset) }">
+     <li class="weather-card" :class="{ 'weather-card--night': nightTime }">
         <WeatherAlert v-if='weatherData.alert' :alertData='weatherData.alert'/>
           <div>
             <h2 class="weather-card__name">
