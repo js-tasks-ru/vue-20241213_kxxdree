@@ -6,6 +6,7 @@ export default defineComponent({
   props: {
     alertData: {
       type: Object,
+      required: true,
     },
   },
 
