@@ -1,15 +1,13 @@
-<script>
-import { defineComponent } from 'vue'
+<script setup>
+import { toRef } from 'vue'
 
-export default defineComponent({
-  name: 'MeetupDescription',
-
-  props: {
-    description: {
-      type: String,
-    },
+const props = defineProps({
+  description: {
+    type: String,
   },
 })
+
+const description = toRef(() => props.description)
 </script>
 
 <template>
