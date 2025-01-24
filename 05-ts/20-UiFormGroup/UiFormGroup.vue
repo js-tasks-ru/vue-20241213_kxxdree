@@ -11,9 +11,9 @@ const props = defineProps<{
 }>()
 
 defineSlots<{
-  default?: Slot
-  label?: Slot
-  description?: Slot
+  default?: () => Slot
+  label?: () => Slot
+  description?: () => Slot
 }>()
 </script>
 
