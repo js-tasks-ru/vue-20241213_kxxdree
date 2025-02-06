@@ -1,5 +1,4 @@
 <script setup>
-import { toRef } from 'vue'
 import MeetupAgendaItem from './MeetupAgendaItem.vue'
 
 const props = defineProps({
@@ -8,13 +7,11 @@ const props = defineProps({
     required: true,
   },
 })
-
-const agenda = toRef(() => props.agenda)
 </script>
 
 <template>
   <ul class="agenda">
-    <li v-for="agendaItem in agenda" :key="agendaItem.id" class="agenda__item">
+    <li v-for="agendaItem in props.agenda" :key="agendaItem.id" class="agenda__item">
       <MeetupAgendaItem :agenda-item="agendaItem" />
     </li>
   </ul>

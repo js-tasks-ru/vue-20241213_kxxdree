@@ -1,19 +1,16 @@
 <script setup>
-import { toRef } from 'vue'
 import { UiAlert, UiContainer } from '@shgk/vue-course-ui'
 import MeetupAgenda from './MeetupAgenda.vue'
 import MeetupDescription from './MeetupDescription.vue'
 import MeetupCover from './MeetupCover.vue'
 import MeetupInfo from './MeetupInfo.vue'
 
-const props = defineProps({
+const { meetup } = defineProps({
   meetup: {
     type: Object,
     required: true,
   },
 })
-
-const meetup = toRef(() => props.meetup)
 </script>
 
 <template>

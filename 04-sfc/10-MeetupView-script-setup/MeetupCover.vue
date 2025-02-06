@@ -1,5 +1,5 @@
 <script setup>
-import { computed, toRef } from 'vue'
+import { computed } from 'vue'
 
 const props = defineProps({
   title: {
@@ -11,10 +11,7 @@ const props = defineProps({
   },
 })
 
-const title = toRef(() => props.title)
-const image = toRef(() => props.image)
-
-const bgStyle = computed(() => (image.value ? { '--bg-url': `url('${image.value}')` } : undefined))
+const bgStyle = computed(() => (props.image ? { '--bg-url': `url('${props.image}')` } : undefined))
 </script>
 
 <template>

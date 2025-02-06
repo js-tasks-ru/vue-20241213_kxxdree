@@ -1,5 +1,5 @@
 <script setup>
-import { computed, toRef } from 'vue'
+import { computed } from 'vue'
 import { UiIcon } from '@shgk/vue-course-ui'
 
 const props = defineProps({
@@ -8,8 +8,6 @@ const props = defineProps({
     required: true,
   },
 })
-
-const agendaItem = toRef(() => props.agendaItem)
 
 const agendaItemDefaultTitles = {
   registration: 'Регистрация',

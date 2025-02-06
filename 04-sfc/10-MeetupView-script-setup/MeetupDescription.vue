@@ -1,13 +1,9 @@
 <script setup>
-import { toRef } from 'vue'
-
-const props = defineProps({
+const { description } = defineProps({
   description: {
     type: String,
   },
 })
-
-const description = toRef(() => props.description)
 </script>
 
 <template>
