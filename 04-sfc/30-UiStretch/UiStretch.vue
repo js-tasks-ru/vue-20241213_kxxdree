@@ -7,14 +7,13 @@
 </template>
 
 <style scoped>
-.stretch-container :deep(*) {
+.stretch-container :slotted(*) {
   width: 100%;
   height: 100%;
 }
-
-.stretch-container :deep(img),
-.stretch-container :deep(video),
-.stretch-container :deep(picture) {
+.stretch-container :slotted(img),
+.stretch-container :slotted(video),
+.stretch-container :slotted(picture) {
   object-fit: scale-down;
 }
 </style>
