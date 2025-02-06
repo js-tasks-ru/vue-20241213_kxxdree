@@ -1,4 +1,6 @@
 <script setup>
+import { computed } from 'vue'
+
 const props = defineProps({
   title: {
     type: String,
@@ -8,21 +10,24 @@ const props = defineProps({
     type: String,
   },
 })
+
+const bgStyle = computed(() => (props.image ? { '--bg-url': `url('${props.image}')` } : undefined))
+const bgUrl = computed(() => (props.image ? `url('${props.image}')` : 'var(--default-cover)'))
 </script>
 
 <template>
-  <div class="meetup-cover">
+  <div class="meetup-cover" :style="bgStyle">
     <h1 class="meetup-cover__title">{{ title }}</h1>
   </div>
 </template>
 
 <style scoped>
 .meetup-cover {
+  --bg-url: var(--default-cover);
   background-size: cover;
   background-position: center;
-  /* background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), var(--bg-url, var(--default-cover)); */
   background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    v-bind('props.image ? `var(--bg-url, url(' ${props.image}')` : `var(--default-cover)`');
+    v-bind(bgUrl);
   display: flex;
   flex-direction: column;
   align-items: center;
