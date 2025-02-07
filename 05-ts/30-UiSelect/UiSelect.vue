@@ -1,8 +1,8 @@
 <script setup lang="ts" generic="T extends string">
 defineProps<{
   options: {
-    value: T
     text: string
+    value: T
   }[]
 }>()
 
